@@ -1,0 +1,41 @@
+name: Publish to Docker
+on:
+  workflow_run:
+    workflows: [ "Release" ]
+    branches: [ master ]
+    types:
+      - completed
+permissions:
+  packages: write
+  contents: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get last release tag
+        id: release
+        uses: oprypin/find-latest-tag@v1
+        with:
+          repository: Theoretical-Driver-Training/TDT-core-ui
+          releases-only: true
+      - name: Checkout
+        uses: actions/checkout@v4
+      # Add your test steps here if needed...
+      - name: Docker meta
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ghcr.io/Theoretical-Driver-Training/TDT-core-ui
+          tags: ${{ steps.release.outputs.tag }}
+      - name: Login to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build container
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
