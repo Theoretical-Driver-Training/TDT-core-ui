@@ -1,3 +1,15 @@
+## 0.3.0 (2024-04-27)
+
+
+### 🚀 Features
+
+- add login page TDT-6 ([c872545](https://github.com/Theoretical-Driver-Training/TDT-core-ui/commit/c872545))
+
+
+### ❤️  Thank You
+
+- MasterVitte
+
 ## 0.2.0 (2024-04-27)
 
 
