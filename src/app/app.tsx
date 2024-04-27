@@ -1,16 +1,26 @@
-import styled from '@emotion/styled';
-
-import NxWelcome from './nx-welcome';
-
-const StyledApp = styled.div`
-  // Your style here
-`;
+import React from 'react';
+import { HashRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 export function App() {
   return (
-    <StyledApp>
-      <NxWelcome title="tdt-core-ui" />
-    </StyledApp>
+    <Router>
+      <div>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/login">Login</Link>
+            </li>
+          </ul>
+        </nav>
+        <Switch>
+          <Route path="/login">login</Route>
+          <Route path="/">home</Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
