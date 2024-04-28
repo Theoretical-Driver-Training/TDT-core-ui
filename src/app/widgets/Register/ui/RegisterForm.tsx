@@ -11,7 +11,7 @@ import Typography from '@mui/material/Typography';
 import { FormEventHandler } from 'react';
 import { Logo } from '../../../shared/Logo';
 
-export const LoginForm = () => {
+export const RegisterForm = () => {
   const handleSubmit: FormEventHandler<HTMLDivElement> = (event) => {
     event.preventDefault();
   };
@@ -47,7 +47,7 @@ export const LoginForm = () => {
         >
           <Logo />
           <Typography component="h1" variant="h5">
-            Войдите в аккаунт
+            Регистрация
           </Typography>
           <Box component="form" onSubmit={handleSubmit} sx={{ mt: 1 }}>
             <TextField
@@ -80,17 +80,17 @@ export const LoginForm = () => {
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
             >
-              Войти
+              Зарегистрироваться
             </Button>
             <Grid container>
               <Grid item xs>
-                <Link href="#/login" variant="body2">
+                <Link href="#/register" variant="body2">
                   Забыли пароль?
                 </Link>
               </Grid>
               <Grid item>
-                <Link href="#/register" variant="body2">
-                  Не имеете аккаунта? Зарегистрируйтесь
+                <Link href="#/login" variant="body2">
+                  Уже имеете аккаунт? Войдите
                 </Link>
               </Grid>
             </Grid>
