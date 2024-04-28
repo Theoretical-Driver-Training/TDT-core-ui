@@ -1,3 +1,15 @@
+## 0.7.0 (2024-04-28)
+
+
+### 🚀 Features
+
+- add menu, breadcrumbs, edit main palette TDT-14 ([aa85107](https://github.com/Theoretical-Driver-Training/TDT-core-ui/commit/aa85107))
+
+
+### ❤️  Thank You
+
+- MasterVitte
+
 ## 0.6.0 (2024-04-28)
 
 
