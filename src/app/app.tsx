@@ -3,6 +3,8 @@ import { HashRouter as Router, Switch, Route } from 'react-router-dom';
 import { LoginPage } from './widgets/Login';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { RegisterPage } from './widgets/Register';
+import CssBaseline from '@mui/material/CssBaseline';
+import { LayoutRoute } from './shared/LayoutRoute';
 
 const defaultTheme = createTheme({
   palette: {
@@ -15,14 +17,15 @@ const defaultTheme = createTheme({
 export function App() {
   return (
     <ThemeProvider theme={defaultTheme}>
+      <CssBaseline />
       <Router>
         <div>
           <Switch>
-            <Route path="/">
-              <Route path="/login" component={LoginPage} />
-              <Route path="/register" component={RegisterPage} />
+            <LayoutRoute path="/" exact>
               home
-            </Route>
+            </LayoutRoute>
+            <Route path="/login" component={LoginPage} />
+            <Route path="/register" component={RegisterPage} />
           </Switch>
         </div>
       </Router>
