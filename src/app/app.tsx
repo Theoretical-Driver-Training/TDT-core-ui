@@ -5,6 +5,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { RegisterPage } from './widgets/Register';
 import CssBaseline from '@mui/material/CssBaseline';
 import { LayoutRoute } from './shared/LayoutRoute';
+import { ProfilePage } from './widgets/Profile';
 
 const defaultTheme = createTheme({
   palette: {
@@ -26,6 +27,9 @@ export function App() {
             </LayoutRoute>
             <Route path="/login" component={LoginPage} />
             <Route path="/register" component={RegisterPage} />
+            <LayoutRoute path="/profile">
+              <ProfilePage />
+            </LayoutRoute>
           </Switch>
         </div>
       </Router>
