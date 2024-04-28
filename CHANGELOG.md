@@ -1,3 +1,15 @@
+## 0.4.0 (2024-04-28)
+
+
+### 🚀 Features
+
+- add register page, logo, translations TDT-8 ([6779926](https://github.com/Theoretical-Driver-Training/TDT-core-ui/commit/6779926))
+
+
+### ❤️  Thank You
+
+- MasterVitte
+
 ## 0.3.0 (2024-04-27)
 
 
