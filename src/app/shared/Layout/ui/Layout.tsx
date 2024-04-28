@@ -4,12 +4,15 @@ import MuiDrawer from '@mui/material/Drawer';
 import Box from '@mui/material/Box';
 import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import Container from '@mui/material/Container';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import { Logo } from '../../Logo';
+import { Grid } from '@mui/material';
+import { BreadCrumbsToolbar } from './BreadCrumbs';
+import { Menu } from '../../../widgets/Menu';
 
 const drawerWidth = 240;
 
@@ -87,15 +90,7 @@ export const Layout: React.FC<React.PropsWithChildren> = ({ children }) => {
           >
             <MenuIcon />
           </IconButton>
-          <Typography
-            component="h1"
-            variant="h6"
-            color="inherit"
-            noWrap
-            sx={{ flexGrow: 1 }}
-          >
-            TDT
-          </Typography>
+          <BreadCrumbsToolbar />
         </Toolbar>
       </AppBar>
       <Drawer variant="permanent" open={open}>
@@ -107,11 +102,15 @@ export const Layout: React.FC<React.PropsWithChildren> = ({ children }) => {
             px: [1],
           }}
         >
+          <Grid container alignItems="center">
+            <Logo />
+          </Grid>
           <IconButton onClick={toggleDrawer}>
             <ChevronLeftIcon />
           </IconButton>
         </Toolbar>
         <Divider />
+        <Menu drawerOpen={open} />
       </Drawer>
       <Box
         component="main"
