@@ -1,3 +1,15 @@
+## 0.6.0 (2024-04-28)
+
+
+### 🚀 Features
+
+- add profile page TDT-12 ([79748d3](https://github.com/Theoretical-Driver-Training/TDT-core-ui/commit/79748d3))
+
+
+### ❤️  Thank You
+
+- MasterVitte
+
 ## 0.5.0 (2024-04-28)
 
 
