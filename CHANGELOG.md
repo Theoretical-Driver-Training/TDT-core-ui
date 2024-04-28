@@ -1,3 +1,15 @@
+## 0.5.0 (2024-04-28)
+
+
+### 🚀 Features
+
+- add layout TDT-10 ([12d2bf3](https://github.com/Theoretical-Driver-Training/TDT-core-ui/commit/12d2bf3))
+
+
+### ❤️  Thank You
+
+- MasterVitte
+
 ## 0.4.0 (2024-04-28)
 
 
