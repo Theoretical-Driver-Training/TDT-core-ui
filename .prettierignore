@@ -3,7 +3,6 @@
 /coverage
 /.nx/cache
 .github/workflows
-README.md
-CHANGELOG.md
-docker-compose.base.yml
-docker-compose.yml
+**/*.md
+**/*.yml
+**/*.css
