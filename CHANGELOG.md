@@ -1,3 +1,15 @@
+## 0.9.0 (2024-04-29)
+
+
+### 🚀 Features
+
+- add toolbar, new logo, hide sidebar on mobile TDT-18 ([9cb1496](https://github.com/Theoretical-Driver-Training/TDT-core-ui/commit/9cb1496))
+
+
+### ❤️  Thank You
+
+- MasterVitte
+
 ## 0.8.0 (2024-04-29)
 
 
