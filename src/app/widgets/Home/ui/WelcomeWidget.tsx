@@ -1,7 +1,7 @@
-import { styled, Typography } from '@mui/material';
+import { GridProps, styled, Typography } from '@mui/material';
 import { WidgetWrapper } from '../../../shared/WidgetWrapper';
 
-const WelcomeWidgetWrapper = styled(WidgetWrapper)(({ theme }) => ({
+const WelcomeWidgetWrapper = styled(WidgetWrapper)<GridProps>(({ theme }) => ({
   backgroundColor: theme.palette.primary.main,
   color: '#fff',
 }));
