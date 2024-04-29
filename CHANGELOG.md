@@ -1,3 +1,15 @@
+## 0.8.0 (2024-04-29)
+
+
+### 🚀 Features
+
+- migration to layout of widgets, add sidebar, new logo/palette TDT-16 ([08d3484](https://github.com/Theoretical-Driver-Training/TDT-core-ui/commit/08d3484))
+
+
+### ❤️  Thank You
+
+- MasterVitte
+
 ## 0.7.0 (2024-04-28)
 
 
