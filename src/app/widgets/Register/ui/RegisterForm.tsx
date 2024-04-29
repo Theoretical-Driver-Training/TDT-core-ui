@@ -54,6 +54,7 @@ export const RegisterForm = () => {
             flexDirection: 'column',
             alignItems: 'center',
           }}
+          gap={2}
         >
           <Logo />
           <Typography component="h1" variant="h5">
