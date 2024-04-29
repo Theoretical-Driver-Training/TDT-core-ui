@@ -4,6 +4,7 @@ import { LoginPage } from '../../../widgets/Login';
 import { RegisterPage } from '../../../widgets/Register';
 import { ProfilePage } from '../../../widgets/Profile';
 import React from 'react';
+import { HomePage } from '../../../widgets/Home';
 
 export const APP_ROUTES = {
   HOME: '/',
@@ -29,7 +30,7 @@ export const AppRouter = () => {
       <div>
         <Switch>
           <LayoutRoute path={ROUTES.HOME} exact>
-            home
+            <HomePage />
           </LayoutRoute>
           <Route path={ROUTES.LOGIN} component={LoginPage} />
           <Route path={ROUTES.REGISTER} component={RegisterPage} />

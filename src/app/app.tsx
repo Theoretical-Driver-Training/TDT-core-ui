@@ -2,19 +2,26 @@ import React from 'react';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { AppRouter } from './shared/Router';
+import './app.css';
 
 const defaultTheme = createTheme({
   palette: {
     primary: {
-      light: '#e4d0f9',
-      main: '#9b41f5',
-      dark: '#000',
+      light: '#a67ad2',
+      main: '#3b46b0',
     },
     secondary: {
-      main: '#fff',
+      light: '#fa8393',
+      main: '#ff3d57',
+      dark: '#fc1937',
     },
   },
 });
+
+export const PRIMARY_GRADIENT =
+  'linear-gradient(90deg, rgba(235,38,173,1) 0%, rgba(56,73,169,1) 100%)';
+export const SECONDARY_GRADIENT =
+  'linear-gradient(90deg, rgba(178,108,204,1) 0%, rgba(113,187,240,1) 100%)';
 
 export function App() {
   return (

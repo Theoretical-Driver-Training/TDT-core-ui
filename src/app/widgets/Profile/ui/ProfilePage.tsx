@@ -1,5 +1,5 @@
-import { ProfileForm } from './ProfileForm';
+import { ProfileWidget } from './ProfileWidget';
 
 export const ProfilePage = () => {
-  return <ProfileForm />;
+  return <ProfileWidget />;
 };

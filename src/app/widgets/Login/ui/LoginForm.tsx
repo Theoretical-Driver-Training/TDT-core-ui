@@ -10,10 +10,20 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import { FormEventHandler } from 'react';
 import { Logo } from '../../../shared/Logo';
+import { styled } from '@mui/material';
+import { PRIMARY_GRADIENT } from '../../../app';
+import { useHistory } from 'react-router-dom';
+
+const SubmitButton = styled(Button)(() => ({
+  background: PRIMARY_GRADIENT,
+}));
 
 export const LoginForm = () => {
+  const history = useHistory();
+
   const handleSubmit: FormEventHandler<HTMLDivElement> = (event) => {
     event.preventDefault();
+    history.push('/');
   };
 
   return (
@@ -74,14 +84,14 @@ export const LoginForm = () => {
               control={<Checkbox value="remember" color="primary" />}
               label="Запомнить меня"
             />
-            <Button
+            <SubmitButton
               type="submit"
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
             >
               Войти
-            </Button>
+            </SubmitButton>
             <Grid container>
               <Grid item xs>
                 <Link href="#/login" variant="body2">
