@@ -1,3 +1,15 @@
+## 0.9.1 (2024-04-30)
+
+
+### 🩹 Fixes
+
+- dynamic breadcrumbs, new design of breadcrumbs TDT-20 ([d181509](https://github.com/Theoretical-Driver-Training/TDT-core-ui/commit/d181509))
+
+
+### ❤️  Thank You
+
+- MasterVitte
+
 ## 0.9.0 (2024-04-29)
 
 
