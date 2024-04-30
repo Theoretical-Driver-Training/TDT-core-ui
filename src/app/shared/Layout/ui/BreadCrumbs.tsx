@@ -20,9 +20,9 @@ export const BreadCrumbsToolbar = () => {
       {breadcrumbs
         .filter((crumb) => crumb.breadcrumb)
         .map((crumb) => {
-          const routeName = (
-            crumb.breadcrumb as unknown
-          ).props.children.toUpperCase();
+          const routeName =
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            (crumb.breadcrumb as any).props.children.toUpperCase();
 
           return (
             <Link key={crumb.key} style={{ textDecoration: 'none' }}>
