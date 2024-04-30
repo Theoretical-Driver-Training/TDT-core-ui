@@ -1,3 +1,15 @@
+## 0.13.0 (2024-04-30)
+
+
+### 🚀 Features
+
+- add widget of popular tests, new palette TDT-29 ([b8586e1](https://github.com/Theoretical-Driver-Training/TDT-core-ui/commit/b8586e1))
+
+
+### ❤️  Thank You
+
+- MasterVitte
+
 ## 0.12.0 (2024-04-30)
 
 
