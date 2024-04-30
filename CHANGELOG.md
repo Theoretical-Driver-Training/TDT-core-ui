@@ -1,3 +1,15 @@
+## 0.12.0 (2024-04-30)
+
+
+### 🚀 Features
+
+- add statistics widget TDT-27 ([c9b808d](https://github.com/Theoretical-Driver-Training/TDT-core-ui/commit/c9b808d))
+
+
+### ❤️  Thank You
+
+- MasterVitte
+
 ## 0.11.0 (2024-04-30)
 
 
