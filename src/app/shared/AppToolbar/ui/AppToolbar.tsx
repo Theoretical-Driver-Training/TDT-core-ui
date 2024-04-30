@@ -20,6 +20,10 @@ const ToolbarLogoLink = styled(Link)(() => ({
   color: '#000',
 }));
 
+const LogoutButtonIcon = styled(IconButton)(({ theme }) => ({
+  color: theme.palette.secondary.dark,
+}));
+
 export const AppToolbar = () => {
   const history = useHistory();
 
@@ -51,9 +55,9 @@ export const AppToolbar = () => {
           <IconButton onClick={handleGoToProfile}>
             <AccountCircleIcon />
           </IconButton>
-          <IconButton onClick={handleLogout}>
+          <LogoutButtonIcon onClick={handleLogout}>
             <LogoutIcon />{' '}
-          </IconButton>
+          </LogoutButtonIcon>
         </Grid>
       </Grid>
     </ToolbarGrid>

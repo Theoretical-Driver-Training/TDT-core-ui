@@ -1,7 +1,7 @@
 import { Grid, useMediaQuery } from '@mui/material';
 import { WelcomeWidget } from './WelcomeWidget';
 import { ResultsWidget } from './ResultsWidget';
-import { ActivityWidget } from './ActivityWidget';
+import { StatisticWidget } from './StatisticWidget';
 import { useTheme } from '@mui/material/styles';
 
 export const HomePage = () => {
@@ -18,7 +18,7 @@ export const HomePage = () => {
           <ResultsWidget />
         </Grid>
         <Grid item xs={12} sm={12} md={7} lg={7}>
-          <ActivityWidget />
+          <StatisticWidget />
         </Grid>
       </Grid>
     </Grid>

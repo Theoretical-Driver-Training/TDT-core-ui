@@ -1,20 +1,20 @@
 import { Grid, IconButton, List } from '@mui/material';
 import { WidgetHeader } from '../../../../WidgetWrapper/ui/WidgetHeader';
-import { HistoryItem } from './HistoryItem';
-import PsychologyIcon from '@mui/icons-material/Psychology';
+import { HistoryItem } from '../../HistoryWidget/ui/HistoryItem';
 import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
+import PsychologyAltIcon from '@mui/icons-material/PsychologyAlt';
 import { ButtonShowAll } from '../../../../ButtonShowAll';
 
-export const HistoryWidget = () => {
+export const PopularWidget = () => {
   return (
     <Grid container xs={12}>
-      <WidgetHeader label="Активные" />
+      <WidgetHeader label="Популярные" />
       <Grid xs={12}>
         <List>
           <HistoryItem
-            label="EQ-тестирование"
-            date="20 апреля"
-            IconComponent={PsychologyIcon}
+            label="Тест Айзенка"
+            date="Добавлен 25 апреля"
+            IconComponent={PsychologyAltIcon}
             endAdornment={
               <IconButton style={{ color: '#ed6c02' }}>
                 <PlayCircleOutlineIcon />

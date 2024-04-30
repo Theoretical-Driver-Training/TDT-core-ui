@@ -11,8 +11,7 @@ const defaultTheme = createTheme({
       main: '#3b46b0',
     },
     secondary: {
-      light: '#fa8393',
-      main: '#ff3d57',
+      main: '#ed6c02',
       dark: '#fc1937',
     },
   },
@@ -21,7 +20,7 @@ const defaultTheme = createTheme({
 export const PRIMARY_GRADIENT =
   'linear-gradient(90deg, rgba(235,38,173,1) 0%, rgba(56,73,169,1) 100%)';
 export const SECONDARY_GRADIENT =
-  'linear-gradient(90deg, rgba(178,108,204,1) 0%, rgba(113,187,240,1) 100%)';
+  'linear-gradient(90deg, rgba(56,73,169,1) 0%, rgba(235,38,173,1) 100%)';
 
 export function App() {
   return (
