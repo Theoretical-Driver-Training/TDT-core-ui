@@ -1,3 +1,15 @@
+## 0.9.2 (2024-04-30)
+
+
+### 🩹 Fixes
+
+- TS typos TDT-20 ([fec5ec4](https://github.com/Theoretical-Driver-Training/TDT-core-ui/commit/fec5ec4))
+
+
+### ❤️  Thank You
+
+- MasterVitte
+
 ## 0.9.1 (2024-04-30)
 
 
