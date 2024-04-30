@@ -29,7 +29,7 @@ export const Layout: React.FC<React.PropsWithChildren> = ({ children }) => {
         <BreadCrumbsToolbar />
       </BreadCrumbsWrapper>
       <GridLayout container gap={3} wrap="nowrap">
-        <Grid item lg={8} md={11} xs={11}>
+        <Grid container item lg={8} md={11} xs={11}>
           {children}
         </Grid>
         {isMobile ? null : <Sidebar />}
