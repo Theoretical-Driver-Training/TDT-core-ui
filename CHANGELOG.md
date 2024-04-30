@@ -1,3 +1,15 @@
+## 0.11.0 (2024-04-30)
+
+
+### 🚀 Features
+
+- history widget TDT-23 ([8b798ef](https://github.com/Theoretical-Driver-Training/TDT-core-ui/commit/8b798ef))
+
+
+### ❤️  Thank You
+
+- MasterVitte
+
 ## 0.10.0 (2024-04-30)
 
 
