@@ -1,24 +1,37 @@
-import { useLocation } from 'react-router-dom';
-import { Breadcrumbs, Link, styled } from '@mui/material';
+import { Breadcrumbs, Link, styled, Typography } from '@mui/material';
+import { Link as RouteLink } from 'react-router-dom';
 import * as React from 'react';
-import { BASE_ROUTE, ROUTE_NAMES } from '../../Router';
+import { ROUTES } from '../../Router';
+import useReactRouterBreadcrumbs from 'use-react-router-breadcrumbs';
 
-const Item = styled(Link)(({ theme }) => ({
-  color: theme.palette.secondary.main,
+const StyledRouteLink = styled(RouteLink)(({ theme }) => ({
+  color: theme.palette.primary.main,
   textDecoration: 'none',
 }));
 
 export const BreadCrumbsToolbar = () => {
-  const location = useLocation();
+  const breadcrumbs = useReactRouterBreadcrumbs();
 
   return (
     <Breadcrumbs aria-label="breadcrumb">
-      <Item>{ROUTE_NAMES[BASE_ROUTE]}</Item>
-      {location.pathname && location.pathname !== BASE_ROUTE && (
-        <Item>
-          {ROUTE_NAMES[location.pathname as keyof typeof ROUTE_NAMES]}
-        </Item>
-      )}
+      <Typography fontWeight={600} variant="body1">
+        Навигация
+      </Typography>
+      {breadcrumbs
+        .filter((crumb) => crumb.breadcrumb)
+        .map((crumb) => {
+          const routeName = (
+            crumb.breadcrumb as unknown
+          ).props.children.toUpperCase();
+
+          return (
+            <Link key={crumb.key} style={{ textDecoration: 'none' }}>
+              <StyledRouteLink to={ROUTES[routeName]?.path}>
+                {ROUTES[routeName]?.label}
+              </StyledRouteLink>
+            </Link>
+          );
+        })}
     </Breadcrumbs>
   );
 };
