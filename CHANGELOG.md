@@ -1,3 +1,15 @@
+## 0.10.0 (2024-04-30)
+
+
+### 🚀 Features
+
+- results widget TDT-24 ([491b3fb](https://github.com/Theoretical-Driver-Training/TDT-core-ui/commit/491b3fb))
+
+
+### ❤️  Thank You
+
+- MasterVitte
+
 ## 0.9.2 (2024-04-30)
 
 
