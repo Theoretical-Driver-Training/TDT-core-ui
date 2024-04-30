@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { WidgetWrapper } from '../../WidgetWrapper';
-import { Grid, styled, Typography } from '@mui/material';
+import { Grid, styled } from '@mui/material';
+import { HistoryWidget } from './HistoryWidget';
 
 const SidebarBlock = styled(Grid)(() => ({
   maxHeight: 600,
@@ -19,9 +20,7 @@ export const Sidebar = () => {
       bottom={16}
     >
       <SidebarBlock container>
-        <Typography style={{ width: '100%', wordBreak: 'break-word' }}>
-          sidebar
-        </Typography>
+        <HistoryWidget />
       </SidebarBlock>
     </WidgetWrapper>
   );
