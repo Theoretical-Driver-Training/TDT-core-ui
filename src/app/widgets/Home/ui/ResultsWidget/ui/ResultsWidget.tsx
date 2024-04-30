@@ -2,9 +2,10 @@ import React from 'react';
 import DoneAllIcon from '@mui/icons-material/DoneAll';
 import { WidgetWrapper } from '../../../../../shared/WidgetWrapper';
 import { WidgetHeader } from '../../../../../shared/WidgetWrapper/ui/WidgetHeader';
-import { Grid, List, Typography } from '@mui/material';
+import { Grid, List } from '@mui/material';
 import { ResultItem } from './ResultItem';
 import { Circle } from '@mui/icons-material';
+import { ButtonShowAll } from '../../../../../shared/ButtonShowAll';
 
 export const ResultsWidget = () => {
   return (
@@ -25,9 +26,7 @@ export const ResultsWidget = () => {
             count={80}
           />
         </List>
-        <Grid container justifyContent="center" paddingTop={2}>
-          <Typography variant="body2">Посмотреть все</Typography>
-        </Grid>
+        <ButtonShowAll onClick={() => null} />
       </Grid>
     </WidgetWrapper>
   );

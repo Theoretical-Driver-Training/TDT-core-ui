@@ -79,7 +79,7 @@ const dataset: any = [
   },
 ];
 
-export const ActivityWidget = () => {
+export const StatisticWidget = () => {
   return (
     <WidgetWrapper item>
       <WidgetHeader label="Моя статистика" icon={<SignalCellularAltIcon />} />
@@ -99,7 +99,7 @@ export const ActivityWidget = () => {
               clipPath: `inset(0px round 10px 10px 0px 0px)`,
             },
           }}
-          colors={['#3b46b0']}
+          colors={['#ed6c02']}
         />
       </div>
     </WidgetWrapper>
