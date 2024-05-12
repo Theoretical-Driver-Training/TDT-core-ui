@@ -1,3 +1,15 @@
+## 0.16.1 (2024-05-12)
+
+
+### 🩹 Fixes
+
+- description of EQ-test TDT-37 ([267e413](https://github.com/Theoretical-Driver-Training/TDT-core-ui/commit/267e413))
+
+
+### ❤️  Thank You
+
+- Витте Артем Андреевич
+
 ## 0.16.0 (2024-05-12)
 
 
