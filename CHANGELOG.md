@@ -1,3 +1,15 @@
+## 0.20.0 (2024-05-12)
+
+
+### 🚀 Features
+
+- add modal of tests and questions TDT-47 ([00a0ab4](https://github.com/Theoretical-Driver-Training/TDT-core-ui/commit/00a0ab4))
+
+
+### ❤️  Thank You
+
+- Витте Артем Андреевич
+
 ## 0.19.0 (2024-05-12)
 
 
