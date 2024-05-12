@@ -12,6 +12,7 @@ interface Props {
   open: boolean;
   setIsOpen: (value: ((prevState: boolean) => boolean) | boolean) => void;
   withCloseIcon?: boolean;
+  width?: number;
 }
 
 const style = {
@@ -19,7 +20,6 @@ const style = {
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: 600,
   bgcolor: 'background.paper',
   borderRadius: '12px',
   boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px',
@@ -30,12 +30,15 @@ export const Modal: React.FC<React.PropsWithChildren<Props>> = ({
   open,
   setIsOpen,
   withCloseIcon = true,
+  width,
   children,
 }) => {
+  const modalWidth = width + 'px' ?? '600px';
+
   return (
     <MaterialModal open={open} onClose={() => setIsOpen(false)}>
       <Fade in={open}>
-        <Box sx={style}>
+        <Box sx={{ ...style, width: modalWidth }}>
           {withCloseIcon && (
             <Grid container justifyContent="flex-end">
               <IconButton onClick={() => setIsOpen(false)}>

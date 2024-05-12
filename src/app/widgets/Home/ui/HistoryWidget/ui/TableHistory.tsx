@@ -1,43 +1,31 @@
-import React from 'react';
-import { WidgetWrapper } from '../../../../../shared/WidgetWrapper';
-import { WidgetHeader } from '../../../../../shared/WidgetWrapper/ui/WidgetHeader';
-import QuizIcon from '@mui/icons-material/Quiz';
-import { IconButton, Typography } from '@mui/material';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableRow from '@mui/material/TableRow';
-import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
+import React, { useState } from 'react';
 import {
   getComparator,
   Order,
 } from '../../../../../shared/Table/lib/comparator';
-import { TableHeader } from '../../../../../shared/Table';
 import { stableSort } from '../../../../../shared/Table/lib/sort';
+import { TableHistoryRow } from '../types';
+import { TableHeader } from '../../../../../shared/Table';
+import { IconButton, Table, TableContainer } from '@mui/material';
+import TableRow from '@mui/material/TableRow';
+import TableCell from '@mui/material/TableCell';
+import TableBody from '@mui/material/TableBody';
+import { ResultModal } from './ResultModal';
 import { rows } from '../lib/rows';
 import { cells } from '../lib/cells';
-import { getStatusText } from '../lib/statuses';
-import { TableTestsToolbar } from './TableTestsToolbar';
-import { TableTestRow } from '../types';
+import InfoIcon from '@mui/icons-material/Info';
 
-interface Props {
-  setIsOpenTest: (value: ((prevState: boolean) => boolean) | boolean) => void;
-  setIsOpenQuestion: (
-    value: ((prevState: boolean) => boolean) | boolean
-  ) => void;
-}
+export const TableHistory = () => {
+  const [isOpenResult, setIsOpenResult] = useState(false);
 
-export const TableTestsWidget = ({
-  setIsOpenTest,
-  setIsOpenQuestion,
-}: Props) => {
   const [order, setOrder] = React.useState<Order>('asc');
-  const [orderBy, setOrderBy] = React.useState<keyof TableTestRow | null>(null);
+  const [orderBy, setOrderBy] = React.useState<keyof TableHistoryRow | null>(
+    null
+  );
 
   const handleRequestSort = (
     event: React.MouseEvent<unknown>,
-    property: keyof TableTestRow
+    property: keyof TableHistoryRow
   ) => {
     const isAsc = orderBy === property && order === 'asc';
     setOrder(isAsc ? 'desc' : 'asc');
@@ -50,16 +38,14 @@ export const TableTestsWidget = ({
   );
 
   return (
-    <WidgetWrapper>
-      <WidgetHeader icon={<QuizIcon />} label="Доступные тесты" />
-      <TableTestsToolbar />
+    <>
       <TableContainer>
         <Table sx={{ minWidth: 750 }} aria-labelledby="tableTitle">
-          <TableHeader<TableTestRow>
+          <TableHeader<TableHistoryRow>
             order={order}
             orderBy={orderBy}
             cells={cells}
-            sortedCells={['label', 'duration', 'createdDate', 'questionCount']}
+            sortedCells={['label', 'duration', 'finishDate', 'questionCount']}
             handleRequestSort={handleRequestSort}
           />
           <TableBody>
@@ -91,23 +77,17 @@ export const TableTestsWidget = ({
                     {row.duration} минут
                   </TableCell>
                   <TableCell align="left" style={{ padding: '16px' }}>
-                    <Typography variant="body2">
-                      {getStatusText(row.status)}
-                    </Typography>
+                    {row.finishDate}
                   </TableCell>
                   <TableCell align="left" style={{ padding: '16px' }}>
-                    {row.createdDate}
+                    {row.count}
                   </TableCell>
                   <TableCell align="left" style={{ padding: '16px' }}>
                     <IconButton
                       style={{ color: '#ed6c02' }}
-                      onClick={
-                        index === 0
-                          ? () => setIsOpenQuestion(true)
-                          : () => setIsOpenTest(true)
-                      }
+                      onClick={() => setIsOpenResult(true)}
                     >
-                      <PlayCircleOutlineIcon />
+                      <InfoIcon />
                     </IconButton>
                   </TableCell>
                 </TableRow>
@@ -116,6 +96,7 @@ export const TableTestsWidget = ({
           </TableBody>
         </Table>
       </TableContainer>
-    </WidgetWrapper>
+      <ResultModal open={isOpenResult} setIsOpenResult={setIsOpenResult} />
+    </>
   );
 };

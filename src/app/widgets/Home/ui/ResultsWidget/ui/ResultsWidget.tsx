@@ -7,7 +7,13 @@ import { ResultItem } from './ResultItem';
 import { Circle } from '@mui/icons-material';
 import { ButtonShowAll } from '../../../../../shared/ButtonShowAll';
 
-export const ResultsWidget = () => {
+interface Props {
+  setIsOpenHistory: (
+    value: ((prevState: boolean) => boolean) | boolean
+  ) => void;
+}
+
+export const ResultsWidget = ({ setIsOpenHistory }: Props) => {
   return (
     <WidgetWrapper container item direction="column" height="100%">
       <WidgetHeader icon={<DoneAllIcon />} label="Мои результаты" />
@@ -28,7 +34,7 @@ export const ResultsWidget = () => {
             count={80}
           />
         </List>
-        <ButtonShowAll onClick={() => null} />
+        <ButtonShowAll onClick={() => setIsOpenHistory(true)} />
       </Grid>
     </WidgetWrapper>
   );
