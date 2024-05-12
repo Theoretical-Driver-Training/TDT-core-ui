@@ -9,10 +9,12 @@ import { ButtonShowAll } from '../../../../../shared/ButtonShowAll';
 
 export const ResultsWidget = () => {
   return (
-    <WidgetWrapper item>
+    <WidgetWrapper container item direction="column" height="100%">
       <WidgetHeader icon={<DoneAllIcon />} label="Мои результаты" />
-      <Grid>
-        <List>
+      <Grid container direction="column" flexGrow={1}>
+        <List
+          style={{ display: 'flex', flexDirection: 'column', flexGrow: '1' }}
+        >
           <ResultItem
             label="EQ-тестирование"
             IconComponent={Circle}
