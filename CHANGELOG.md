@@ -1,3 +1,15 @@
+## 0.16.0 (2024-05-12)
+
+
+### 🚀 Features
+
+- add page of test TDT-37 ([ab60427](https://github.com/Theoretical-Driver-Training/TDT-core-ui/commit/ab60427))
+
+
+### ❤️  Thank You
+
+- Витте Артем Андреевич
+
 ## 0.15.0 (2024-05-12)
 
 
