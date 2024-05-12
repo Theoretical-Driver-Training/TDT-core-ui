@@ -1,3 +1,15 @@
+## 0.16.2 (2024-05-12)
+
+
+### 🩹 Fixes
+
+- disable last bread crumb TDT-39 ([5706640](https://github.com/Theoretical-Driver-Training/TDT-core-ui/commit/5706640))
+
+
+### ❤️  Thank You
+
+- Витте Артем Андреевич
+
 ## 0.16.1 (2024-05-12)
 
 
