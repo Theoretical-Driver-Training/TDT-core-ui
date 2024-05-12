@@ -1,3 +1,15 @@
+## 0.18.0 (2024-05-12)
+
+
+### 🚀 Features
+
+- search, filters in table of tests TDT-44 ([2619d7b](https://github.com/Theoretical-Driver-Training/TDT-core-ui/commit/2619d7b))
+
+
+### ❤️  Thank You
+
+- Витте Артем Андреевич
+
 ## 0.17.0 (2024-05-12)
 
 
