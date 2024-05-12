@@ -36,7 +36,7 @@ function getComparator<Key extends keyof TableTestItem>(
 function stableSort<T>(
   array: readonly T[],
   comparator: (a: T, b: T) => number
-) {
+): T[] {
   const stabilizedThis = array.map((el, index) => [el, index] as [T, number]);
   stabilizedThis.sort((a, b) => {
     const order = comparator(a[0], b[0]);
@@ -71,6 +71,11 @@ const headCells: readonly HeadCell[] = [
     label: 'Длительность',
   },
   {
+    id: 'status',
+    numeric: false,
+    label: 'Статус',
+  },
+  {
     id: 'createdDate',
     numeric: false,
     label: 'Дата добавления',
@@ -83,6 +88,7 @@ interface TableTestItem {
   questionCount: number;
   createdDate: string;
   duration: number;
+  status: 'NEW' | 'IN_PROGRESS' | 'DONE';
 }
 
 const rows: TableTestItem[] = [
@@ -92,6 +98,7 @@ const rows: TableTestItem[] = [
     questionCount: 42,
     createdDate: '20.04.2024',
     duration: 40,
+    status: 'IN_PROGRESS',
   },
   {
     id: '2',
@@ -99,6 +106,7 @@ const rows: TableTestItem[] = [
     questionCount: 57,
     createdDate: '19.03.2024',
     duration: 60,
+    status: 'NEW',
   },
 ];
 
@@ -128,19 +136,35 @@ function EnhancedTableHead(props: EnhancedTableProps) {
             padding={'normal'}
             sortDirection={orderBy === headCell.id ? order : false}
           >
-            <TableSortLabel
-              active={orderBy === headCell.id}
-              direction={orderBy === headCell.id ? order : 'asc'}
-              onClick={createSortHandler(headCell.id)}
-            >
-              {headCell.label}
-            </TableSortLabel>
+            {['label', 'questionCount', 'createdDate', 'duration'].includes(
+              headCell.id
+            ) ? (
+              <TableSortLabel
+                active={orderBy === headCell.id}
+                direction={orderBy === headCell.id ? order : 'asc'}
+                onClick={createSortHandler(headCell.id)}
+              >
+                {headCell.label}
+              </TableSortLabel>
+            ) : (
+              <>{headCell.label}</>
+            )}
           </TableCell>
         ))}
       </TableRow>
     </TableHead>
   );
 }
+
+const statusesMap: Record<TableTestItem['status'], string> = {
+  NEW: 'Новый',
+  IN_PROGRESS: 'В прогрессе',
+  DONE: 'Завершен',
+};
+
+const getStatusText = (status: TableTestItem['status']) => {
+  return statusesMap[status];
+};
 
 export const TableTestsWidget = () => {
   const [order, setOrder] = React.useState<Order>('asc');
@@ -158,7 +182,7 @@ export const TableTestsWidget = () => {
   const emptyRows = 0;
 
   const visibleRows = React.useMemo(
-    () => stableSort(rows, getComparator(order, orderBy)),
+    () => stableSort(rows, getComparator(order, orderBy)) as TableTestItem[],
     [order, orderBy]
   );
 
@@ -200,6 +224,9 @@ export const TableTestsWidget = () => {
                     </TableCell>
                     <TableCell align="left" style={{ padding: '16px' }}>
                       {row.duration} минут
+                    </TableCell>
+                    <TableCell align="left" style={{ padding: '16px' }}>
+                      {getStatusText(row.status)}
                     </TableCell>
                     <TableCell align="left" style={{ padding: '16px' }}>
                       {row.createdDate}
