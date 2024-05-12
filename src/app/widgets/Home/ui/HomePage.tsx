@@ -3,6 +3,8 @@ import { WelcomeWidget } from './WelcomeWidget';
 import { ResultsWidget } from './ResultsWidget';
 import { StatisticWidget } from './StatisticWidget';
 import { useTheme } from '@mui/material/styles';
+import { EtherActiveTestWidget } from './EtherActiveTestWidget';
+import { EtherPopularTestWidget } from './EtherPopularTestWidget';
 
 export const HomePage = () => {
   const theme = useTheme();
@@ -19,6 +21,14 @@ export const HomePage = () => {
         </Grid>
         <Grid item xs={12} sm={12} md={7} lg={7}>
           <StatisticWidget />
+        </Grid>
+      </Grid>
+      <Grid container xs={12} gap={3} wrap={isMobile ? 'wrap' : 'nowrap'}>
+        <Grid item xs={12} sm={12} md={6} lg={6}>
+          <EtherActiveTestWidget />
+        </Grid>
+        <Grid item xs={12} sm={12} md={6} lg={6}>
+          <EtherPopularTestWidget />
         </Grid>
       </Grid>
     </Grid>
