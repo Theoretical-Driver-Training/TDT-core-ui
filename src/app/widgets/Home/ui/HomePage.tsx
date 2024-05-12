@@ -6,10 +6,16 @@ import { useTheme } from '@mui/material/styles';
 import { EtherActiveTestWidget } from './EtherActiveTestWidget';
 import { EtherPopularTestWidget } from './EtherPopularTestWidget';
 import { TableTestsWidget } from './TableTestsWidget';
+import { TestWidget } from './TestWidget';
+import { useState } from 'react';
+import { QuestionWidget } from './QuestionWidget';
 
 export const HomePage = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+
+  const [isOpenTest, setIsOpenTest] = useState(false);
+  const [isOpenQuestion, setIsOpenQuestion] = useState(false);
 
   return (
     <Grid container xs={12} gap={3}>
@@ -33,8 +39,17 @@ export const HomePage = () => {
         </Grid>
       </Grid>
       <Grid xs={12}>
-        <TableTestsWidget />
+        <TableTestsWidget
+          setIsOpenTest={setIsOpenTest}
+          setIsOpenQuestion={setIsOpenQuestion}
+        />
       </Grid>
+
+      <TestWidget open={isOpenTest} setIsOpenTest={setIsOpenTest} />
+      <QuestionWidget
+        open={isOpenQuestion}
+        setIsOpenQuestion={setIsOpenQuestion}
+      />
     </Grid>
   );
 };
