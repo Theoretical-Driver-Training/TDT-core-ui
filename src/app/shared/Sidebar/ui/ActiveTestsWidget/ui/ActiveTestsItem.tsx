@@ -10,7 +10,7 @@ interface Props {
   endAdornment?: React.ReactNode;
 }
 
-export const HistoryItem = ({
+export const ActiveTestsItem = ({
   label,
   date,
   IconComponent,

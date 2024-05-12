@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { WidgetWrapper } from '../../WidgetWrapper';
 import { Grid, styled } from '@mui/material';
-import { HistoryWidget } from './HistoryWidget';
+import { ActiveTestsWidget } from './ActiveTestsWidget';
 import { PopularWidget } from './PopularWidget';
 
 const SidebarBlock = styled(Grid)(() => ({
@@ -23,7 +23,7 @@ export const Sidebar = () => {
       gap={3}
     >
       <SidebarBlock container item>
-        <HistoryWidget />
+        <ActiveTestsWidget />
       </SidebarBlock>
       <SidebarBlock container item>
         <PopularWidget />

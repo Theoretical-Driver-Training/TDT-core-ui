@@ -1,17 +1,17 @@
 import { Grid, IconButton, List } from '@mui/material';
 import { WidgetHeader } from '../../../../WidgetWrapper/ui/WidgetHeader';
-import { HistoryItem } from './HistoryItem';
+import { ActiveTestsItem } from './ActiveTestsItem';
 import PsychologyIcon from '@mui/icons-material/Psychology';
 import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
 import { ButtonShowAll } from '../../../../ButtonShowAll';
 
-export const HistoryWidget = () => {
+export const ActiveTestsWidget = () => {
   return (
     <Grid container xs={12}>
       <WidgetHeader label="Активные" />
       <Grid xs={12}>
         <List>
-          <HistoryItem
+          <ActiveTestsItem
             label="EQ-тестирование"
             date="20 апреля"
             IconComponent={PsychologyIcon}
