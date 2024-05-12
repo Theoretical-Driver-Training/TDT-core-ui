@@ -1,3 +1,15 @@
+## 0.14.0 (2024-05-12)
+
+
+### 🚀 Features
+
+- add ether widgets TDT-31 ([de218fc](https://github.com/Theoretical-Driver-Training/TDT-core-ui/commit/de218fc))
+
+
+### ❤️  Thank You
+
+- Витте Артем Андреевич
+
 ## 0.13.1 (2024-05-12)
 
 
