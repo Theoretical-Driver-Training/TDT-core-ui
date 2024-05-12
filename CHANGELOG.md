@@ -1,3 +1,15 @@
+## 0.13.1 (2024-05-12)
+
+
+### 🩹 Fixes
+
+- height of result widget TDT-32 ([1c5a061](https://github.com/Theoretical-Driver-Training/TDT-core-ui/commit/1c5a061))
+
+
+### ❤️  Thank You
+
+- Витте Артем Андреевич
+
 ## 0.13.0 (2024-04-30)
 
 
