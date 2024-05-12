@@ -1,3 +1,15 @@
+## 0.19.0 (2024-05-12)
+
+
+### 🚀 Features
+
+- add chip filter TDT-44 ([1127136](https://github.com/Theoretical-Driver-Training/TDT-core-ui/commit/1127136))
+
+
+### ❤️  Thank You
+
+- Витте Артем Андреевич
+
 ## 0.18.0 (2024-05-12)
 
 
