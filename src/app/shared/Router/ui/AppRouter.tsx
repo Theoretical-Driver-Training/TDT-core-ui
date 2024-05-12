@@ -6,6 +6,7 @@ import { ProfilePage } from '../../../widgets/Profile';
 import React from 'react';
 import { HomePage } from '../../../widgets/Home';
 import { ROUTES } from '../lib';
+import { TestPage } from '../../../widgets/Test';
 
 export const AppRouter = () => {
   return (
@@ -20,8 +21,8 @@ export const AppRouter = () => {
           <LayoutRoute path={ROUTES.PROFILE.path}>
             <ProfilePage />
           </LayoutRoute>
-          <LayoutRoute path="/tests" exact>
-            testhome
+          <LayoutRoute path={ROUTES.TEST.path}>
+            <TestPage />
           </LayoutRoute>
           <LayoutRoute path="/test/:testId">test</LayoutRoute>
         </Switch>
