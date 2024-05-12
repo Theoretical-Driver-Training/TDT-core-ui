@@ -9,6 +9,7 @@ import CloseIcon from '@mui/icons-material/Close';
 const StartButton = styled(Button)(() => ({
   background: PRIMARY_GRADIENT,
   color: '#fff',
+  textTransform: 'none',
 }));
 
 interface Props {

@@ -25,7 +25,7 @@ export const ResultsWidget = ({ setIsOpenHistory }: Props) => {
             label="EQ-тестирование"
             IconComponent={Circle}
             color="#7467ef"
-            count={40}
+            count={125}
           />
           <ResultItem
             label="Тест Айзека"

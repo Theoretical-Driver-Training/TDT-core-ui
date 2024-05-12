@@ -16,6 +16,7 @@ import { useHistory } from 'react-router-dom';
 
 const SubmitButton = styled(Button)(() => ({
   background: PRIMARY_GRADIENT,
+  textTransform: 'none',
 }));
 
 export const LoginForm = () => {
