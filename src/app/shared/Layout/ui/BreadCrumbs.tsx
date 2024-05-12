@@ -12,26 +12,38 @@ const StyledRouteLink = styled(RouteLink)(({ theme }) => ({
 export const BreadCrumbsToolbar = () => {
   const breadcrumbs = useReactRouterBreadcrumbs();
 
+  const visibleBreadcrumbs = breadcrumbs.filter((crumb) => crumb.breadcrumb);
+
   return (
     <Breadcrumbs aria-label="breadcrumb">
       <Typography fontWeight={600} variant="body1">
         Навигация
       </Typography>
-      {breadcrumbs
-        .filter((crumb) => crumb.breadcrumb)
-        .map((crumb) => {
-          const routeName =
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            (crumb.breadcrumb as any).props.children.toUpperCase();
+      {visibleBreadcrumbs.map((crumb, index) => {
+        const routeName =
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          (crumb.breadcrumb as any).props.children.toUpperCase();
 
-          return (
-            <Link key={crumb.key} style={{ textDecoration: 'none' }}>
-              <StyledRouteLink to={ROUTES[routeName]?.path}>
-                {ROUTES[routeName]?.label}
-              </StyledRouteLink>
-            </Link>
-          );
-        })}
+        const route = ROUTES[routeName];
+
+        if (!route || !route?.label) {
+          return null;
+        }
+
+        const isLastRoute = visibleBreadcrumbs.length - 1 === index;
+
+        if (isLastRoute) {
+          return <Typography>{ROUTES[routeName]?.label}</Typography>;
+        }
+
+        return (
+          <Link key={crumb.key} style={{ textDecoration: 'none' }}>
+            <StyledRouteLink to={ROUTES[routeName]?.path}>
+              {ROUTES[routeName]?.label}
+            </StyledRouteLink>
+          </Link>
+        );
+      })}
     </Breadcrumbs>
   );
 };
