@@ -3,6 +3,7 @@ import { WidgetWrapper } from '../../../../../shared/WidgetWrapper';
 import { WidgetHeader } from '../../../../../shared/WidgetWrapper/ui/WidgetHeader';
 import QuizIcon from '@mui/icons-material/Quiz';
 import {
+  Box,
   Grid,
   IconButton,
   List,
@@ -228,7 +229,7 @@ export const TableTestsWidget = () => {
     <WidgetWrapper>
       <WidgetHeader icon={<QuizIcon />} label="Доступные тесты" />
       <Grid paddingTop={2}>
-        <Grid>
+        <Grid container alignItems="center">
           <SearchField placeholder="Поиск" />
           <Tooltip
             open={filtersOpen}
@@ -261,12 +262,28 @@ export const TableTestsWidget = () => {
             onClose={() => setFiltersOpen(false)}
           >
             <IconButton
-              style={{ marginLeft: '8px', color: '#ed6c02' }}
+              style={{ marginLeft: '8px', color: '#3b46b0' }}
               onClick={() => setFiltersOpen(true)}
             >
               <FilterAltIcon />
             </IconButton>
           </Tooltip>
+          <Box
+            style={{
+              backgroundColor: '#3b46b0',
+              borderRadius: '40px',
+              display: 'flex',
+              alignItems: 'center',
+              height: '32px',
+              width: 'max-content',
+              padding: '4px 12px',
+              fontSize: '14px',
+              color: '#fff',
+              marginLeft: '8px',
+            }}
+          >
+            Фильтр: Все
+          </Box>
         </Grid>
         <TableContainer>
           <Table sx={{ minWidth: 750 }} aria-labelledby="tableTitle">
