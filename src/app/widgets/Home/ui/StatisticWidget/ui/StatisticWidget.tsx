@@ -96,7 +96,7 @@ export const StatisticWidget = () => {
           {...chartSetting}
           slotProps={{
             bar: {
-              clipPath: `inset(0px round 10px 10px 0px 0px)`,
+              clipPath: `inset(0px round 4px 4px 0px 0px)`,
             },
           }}
           colors={['#ed6c02']}

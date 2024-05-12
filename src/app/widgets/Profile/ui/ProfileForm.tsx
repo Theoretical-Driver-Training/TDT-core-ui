@@ -1,13 +1,13 @@
 import * as React from 'react';
 import { Box, Button, Grid, styled, TextField } from '@mui/material';
 import { FormEventHandler } from 'react';
-
-const ResetButton = styled(Button)(() => ({
-  width: 140,
-}));
+import { PRIMARY_GRADIENT } from '../../../app';
 
 const SaveButton = styled(Button)(() => ({
+  background: PRIMARY_GRADIENT,
+  color: '#fff',
   width: 140,
+  textTransform: 'none',
 }));
 
 export const ProfileForm = () => {
@@ -66,10 +66,7 @@ export const ProfileForm = () => {
         name="weight"
       />
       <Grid container justifyContent="flex-end" gap={2}>
-        <ResetButton type="reset" variant="contained" sx={{ mt: 3, mb: 2 }}>
-          Отмена
-        </ResetButton>
-        <SaveButton type="submit" variant="contained" sx={{ mt: 3, mb: 2 }}>
+        <SaveButton type="submit" sx={{ mt: 3, mb: 2 }}>
           Сохранить
         </SaveButton>
       </Grid>

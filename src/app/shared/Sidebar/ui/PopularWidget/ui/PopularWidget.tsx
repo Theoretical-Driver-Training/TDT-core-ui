@@ -13,7 +13,7 @@ export const PopularWidget = () => {
         <List>
           <ActiveTestsItem
             label="Тест Айзенка"
-            date="Добавлен 25 апреля"
+            date="Добавлен 19 марта"
             IconComponent={PsychologyAltIcon}
             endAdornment={
               <IconButton style={{ color: '#ed6c02' }}>

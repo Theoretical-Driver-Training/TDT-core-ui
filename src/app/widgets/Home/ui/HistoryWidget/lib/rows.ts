@@ -13,7 +13,7 @@ export const rows: TableHistoryRow[] = [
     id: '2',
     label: 'Тест Айзенка',
     questionCount: 57,
-    finishDate: '19.03.2024',
+    finishDate: '11.04.2024',
     duration: 68,
     count: 80,
   },

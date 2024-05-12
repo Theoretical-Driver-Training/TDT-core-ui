@@ -13,7 +13,7 @@ const PopularWidgetWrapper = styled(WidgetWrapper)(({ theme }) => ({
 export const EtherPopularTestWidget = () => {
   return (
     <PopularWidgetWrapper>
-      <WidgetHeader label="Рекомендуем попробовать!" />
+      <WidgetHeader label="Популярно среди пользователей!" />
 
       <Grid
         container
