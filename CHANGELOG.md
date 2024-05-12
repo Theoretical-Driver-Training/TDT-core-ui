@@ -1,3 +1,15 @@
+## 0.17.0 (2024-05-12)
+
+
+### 🚀 Features
+
+- add statuses for tests TDT-42 ([4791bf6](https://github.com/Theoretical-Driver-Training/TDT-core-ui/commit/4791bf6))
+
+
+### ❤️  Thank You
+
+- Витте Артем Андреевич
+
 ## 0.16.2 (2024-05-12)
 
 
