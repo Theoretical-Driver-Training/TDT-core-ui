@@ -1,3 +1,15 @@
+## 0.15.0 (2024-05-12)
+
+
+### 🚀 Features
+
+- add table widget of tests TDT-35 ([51aea69](https://github.com/Theoretical-Driver-Training/TDT-core-ui/commit/51aea69))
+
+
+### ❤️  Thank You
+
+- Витте Артем Андреевич
+
 ## 0.14.0 (2024-05-12)
 
 
