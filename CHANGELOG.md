@@ -1,3 +1,20 @@
+## 0.21.0 (2024-05-12)
+
+
+### 🚀 Features
+
+- add history, results TDT-49 ([c3d4261](https://github.com/Theoretical-Driver-Training/TDT-core-ui/commit/c3d4261))
+
+
+### 🩹 Fixes
+
+- fonts, mock data TDT-49 ([e37c5bf](https://github.com/Theoretical-Driver-Training/TDT-core-ui/commit/e37c5bf))
+
+
+### ❤️  Thank You
+
+- Витте Артем Андреевич
+
 ## 0.20.0 (2024-05-12)
 
 
