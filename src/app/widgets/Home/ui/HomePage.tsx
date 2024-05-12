@@ -5,6 +5,7 @@ import { StatisticWidget } from './StatisticWidget';
 import { useTheme } from '@mui/material/styles';
 import { EtherActiveTestWidget } from './EtherActiveTestWidget';
 import { EtherPopularTestWidget } from './EtherPopularTestWidget';
+import { TableTestsWidget } from './TableTestsWidget';
 
 export const HomePage = () => {
   const theme = useTheme();
@@ -30,6 +31,9 @@ export const HomePage = () => {
         <Grid item xs={12} sm={12} md={6} lg={6}>
           <EtherPopularTestWidget />
         </Grid>
+      </Grid>
+      <Grid xs={12}>
+        <TableTestsWidget />
       </Grid>
     </Grid>
   );
