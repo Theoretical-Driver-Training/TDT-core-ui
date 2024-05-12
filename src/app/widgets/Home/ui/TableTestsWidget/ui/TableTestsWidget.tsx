@@ -1,13 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { WidgetWrapper } from '../../../../../shared/WidgetWrapper';
 import { WidgetHeader } from '../../../../../shared/WidgetWrapper/ui/WidgetHeader';
 import QuizIcon from '@mui/icons-material/Quiz';
-import { Grid, TableHead, TableSortLabel } from '@mui/material';
+import {
+  Grid,
+  IconButton,
+  List,
+  ListItem,
+  Radio,
+  styled,
+  TableHead,
+  TableSortLabel,
+  TextField,
+  Tooltip,
+  Typography,
+} from '@mui/material';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableRow from '@mui/material/TableRow';
+import FilterAltIcon from '@mui/icons-material/FilterAlt';
+import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
+
+const SearchField = styled(TextField)(() => ({
+  '& input': {
+    padding: 10,
+    fontSize: 14,
+    height: 20,
+  },
+}));
 
 function descendingComparator<T>(a: T, b: T, orderBy: keyof T) {
   if (b[orderBy] < a[orderBy]) {
@@ -80,6 +102,11 @@ const headCells: readonly HeadCell[] = [
     numeric: false,
     label: 'Дата добавления',
   },
+  {
+    id: 'possibleRun',
+    numeric: false,
+    label: '',
+  },
 ];
 
 interface TableTestItem {
@@ -89,6 +116,7 @@ interface TableTestItem {
   createdDate: string;
   duration: number;
   status: 'NEW' | 'IN_PROGRESS' | 'DONE';
+  possibleRun: boolean;
 }
 
 const rows: TableTestItem[] = [
@@ -99,6 +127,7 @@ const rows: TableTestItem[] = [
     createdDate: '20.04.2024',
     duration: 40,
     status: 'IN_PROGRESS',
+    possibleRun: true,
   },
   {
     id: '2',
@@ -107,13 +136,14 @@ const rows: TableTestItem[] = [
     createdDate: '19.03.2024',
     duration: 60,
     status: 'NEW',
+    possibleRun: true,
   },
 ];
 
 interface EnhancedTableProps {
   onRequestSort: (
     event: React.MouseEvent<unknown>,
-    property: keyof TableTestItem
+    property: keyof Omit<TableTestItem, 'possibleRun'>
   ) => void;
   order: Order;
   orderBy: string;
@@ -122,7 +152,8 @@ interface EnhancedTableProps {
 function EnhancedTableHead(props: EnhancedTableProps) {
   const { order, orderBy, onRequestSort } = props;
   const createSortHandler =
-    (property: keyof TableTestItem) => (event: React.MouseEvent<unknown>) => {
+    (property: keyof Omit<TableTestItem, 'possibleRun'>) =>
+    (event: React.MouseEvent<unknown>) => {
       onRequestSort(event, property);
     };
 
@@ -142,12 +173,16 @@ function EnhancedTableHead(props: EnhancedTableProps) {
               <TableSortLabel
                 active={orderBy === headCell.id}
                 direction={orderBy === headCell.id ? order : 'asc'}
-                onClick={createSortHandler(headCell.id)}
+                onClick={() => {
+                  if (headCell.id !== 'possibleRun') {
+                    createSortHandler(headCell.id);
+                  }
+                }}
               >
                 {headCell.label}
               </TableSortLabel>
             ) : (
-              <>{headCell.label}</>
+              <Typography>{headCell.label}</Typography>
             )}
           </TableCell>
         ))}
@@ -168,11 +203,12 @@ const getStatusText = (status: TableTestItem['status']) => {
 
 export const TableTestsWidget = () => {
   const [order, setOrder] = React.useState<Order>('asc');
-  const [orderBy, setOrderBy] = React.useState<keyof TableTestItem>('duration');
+  const [orderBy, setOrderBy] =
+    React.useState<keyof Omit<TableTestItem, 'possibleRun'>>('duration');
 
   const handleRequestSort = (
     event: React.MouseEvent<unknown>,
-    property: keyof TableTestItem
+    property: keyof Omit<TableTestItem, 'possibleRun'>
   ) => {
     const isAsc = orderBy === property && order === 'asc';
     setOrder(isAsc ? 'desc' : 'asc');
@@ -182,14 +218,56 @@ export const TableTestsWidget = () => {
   const emptyRows = 0;
 
   const visibleRows = React.useMemo(
-    () => stableSort(rows, getComparator(order, orderBy)) as TableTestItem[],
+    () => stableSort(rows, getComparator(order, orderBy)),
     [order, orderBy]
   );
+
+  const [filtersOpen, setFiltersOpen] = useState(false);
 
   return (
     <WidgetWrapper>
       <WidgetHeader icon={<QuizIcon />} label="Доступные тесты" />
       <Grid paddingTop={2}>
+        <Grid>
+          <SearchField placeholder="Поиск" />
+          <Tooltip
+            open={filtersOpen}
+            components={{
+              Tooltip: 'div',
+            }}
+            placement="right"
+            title={
+              <Grid
+                style={{
+                  boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px',
+                  borderRadius: '8px',
+                  backgroundColor: '#fff',
+                }}
+              >
+                <List>
+                  <ListItem style={{ fontSize: '12px', padding: '0px 8px' }}>
+                    <Radio checked /> Все
+                  </ListItem>
+                  <ListItem style={{ fontSize: '12px', padding: '0px 8px' }}>
+                    <Radio /> Активные
+                  </ListItem>
+                  <ListItem style={{ fontSize: '12px', padding: '0px 8px' }}>
+                    <Radio /> Популярные
+                  </ListItem>
+                </List>
+              </Grid>
+            }
+            disableHoverListener
+            onClose={() => setFiltersOpen(false)}
+          >
+            <IconButton
+              style={{ marginLeft: '8px', color: '#ed6c02' }}
+              onClick={() => setFiltersOpen(true)}
+            >
+              <FilterAltIcon />
+            </IconButton>
+          </Tooltip>
+        </Grid>
         <TableContainer>
           <Table sx={{ minWidth: 750 }} aria-labelledby="tableTitle">
             <EnhancedTableHead
@@ -226,10 +304,15 @@ export const TableTestsWidget = () => {
                       {row.duration} минут
                     </TableCell>
                     <TableCell align="left" style={{ padding: '16px' }}>
-                      {getStatusText(row.status)}
+                      {getStatusText(row.status as TableTestItem['status'])}
                     </TableCell>
                     <TableCell align="left" style={{ padding: '16px' }}>
                       {row.createdDate}
+                    </TableCell>
+                    <TableCell align="left" style={{ padding: '16px' }}>
+                      <IconButton style={{ color: '#ed6c02' }}>
+                        <PlayCircleOutlineIcon />
+                      </IconButton>
                     </TableCell>
                   </TableRow>
                 );
