@@ -1,11 +1,11 @@
 import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import { LayoutRoute } from '../../LayoutRoute';
-import { LoginPage } from '../../../widgets/Login';
-import { RegisterPage } from '../../../widgets/Register';
-import { ProfilePage } from '../../../widgets/Profile';
 import React from 'react';
-import { HomePage } from '../../../widgets/Home';
 import { ROUTES } from '../lib';
+import { HomePage } from '../../../entities/Home';
+import { LoginPage } from '../../../entities/Login';
+import { RegisterPage } from '../../../entities/Register';
+import { ProfilePage } from '../../../entities/Profile';
 
 export const AppRouter = () => {
   return (
