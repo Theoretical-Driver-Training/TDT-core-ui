@@ -1,3 +1,15 @@
+## 0.23.0 (2024-06-02)
+
+
+### 🚀 Features
+
+- Schulte test TDT-53 ([5ae8ca3](https://github.com/Theoretical-Driver-Training/TDT-core-ui/commit/5ae8ca3))
+
+
+### ❤️  Thank You
+
+- Витте Артем Андреевич
+
 ## 0.22.0 (2024-06-02)
 
 
