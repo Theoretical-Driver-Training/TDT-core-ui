@@ -1,3 +1,15 @@
+## 0.22.0 (2024-06-02)
+
+
+### 🚀 Features
+
+- new testing on main page TDT-51 ([0e44d0e](https://github.com/Theoretical-Driver-Training/TDT-core-ui/commit/0e44d0e))
+
+
+### ❤️  Thank You
+
+- Витте Артем Андреевич
+
 ## 0.21.0 (2024-05-12)
 
 
