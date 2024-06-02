@@ -1,8 +1,9 @@
 import { GridProps, styled, Typography } from '@mui/material';
 import { WidgetWrapper } from '../../../../../shared/WidgetWrapper';
+import { PRIMARY_GRADIENT } from '../../../../../app';
 
-const WelcomeWidgetWrapper = styled(WidgetWrapper)<GridProps>(({ theme }) => ({
-  backgroundColor: theme.palette.primary.main,
+const WelcomeWidgetWrapper = styled(WidgetWrapper)<GridProps>(() => ({
+  background: PRIMARY_GRADIENT,
   color: '#fff',
 }));
 

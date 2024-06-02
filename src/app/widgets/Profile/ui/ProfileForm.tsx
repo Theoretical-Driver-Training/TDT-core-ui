@@ -1,10 +1,9 @@
 import * as React from 'react';
 import { Box, Button, Grid, styled, TextField } from '@mui/material';
 import { FormEventHandler } from 'react';
-import { PRIMARY_GRADIENT } from '../../../app';
 
-const SaveButton = styled(Button)(() => ({
-  background: PRIMARY_GRADIENT,
+const SaveButton = styled(Button)(({ theme }) => ({
+  background: theme.palette.primary.main,
   color: '#fff',
   width: 140,
   textTransform: 'none',

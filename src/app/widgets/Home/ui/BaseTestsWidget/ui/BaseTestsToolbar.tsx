@@ -20,7 +20,7 @@ const SearchField = styled(TextField)(() => ({
   },
 }));
 
-export const TableTestsToolbar = () => {
+export const BaseTestsToolbar = () => {
   const [filtersOpen, setFiltersOpen] = useState(false);
 
   return (
@@ -36,10 +36,10 @@ export const TableTestsToolbar = () => {
                 <Radio checked /> Все
               </ListItem>
               <ListItem style={{ fontSize: '12px', padding: '0px 8px' }}>
-                <Radio /> Активные
+                <Radio /> Базовые
               </ListItem>
               <ListItem style={{ fontSize: '12px', padding: '0px 8px' }}>
-                <Radio /> Популярные
+                <Radio /> Расширенные
               </ListItem>
             </List>
           }

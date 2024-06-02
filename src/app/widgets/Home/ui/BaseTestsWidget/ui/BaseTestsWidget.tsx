@@ -2,13 +2,14 @@ import React from 'react';
 import { WidgetWrapper } from '../../../../../shared/WidgetWrapper';
 import { WidgetHeader } from '../../../../../shared/WidgetWrapper/ui/WidgetHeader';
 import QuizIcon from '@mui/icons-material/Quiz';
-import { IconButton, Typography } from '@mui/material';
+import { Grid, IconButton, Typography } from '@mui/material';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableRow from '@mui/material/TableRow';
 import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
+import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import {
   getComparator,
   Order,
@@ -18,8 +19,10 @@ import { stableSort } from '../../../../../shared/Table/lib/sort';
 import { rows } from '../lib/rows';
 import { cells } from '../lib/cells';
 import { getStatusText } from '../lib/statuses';
-import { TableTestsToolbar } from './TableTestsToolbar';
+import { BaseTestsToolbar } from './BaseTestsToolbar';
 import { TableTestRow } from '../types';
+import { Chip } from '../../../../../shared/Chip';
+import PsychologyIcon from '@mui/icons-material/Psychology';
 
 interface Props {
   setIsOpenTest: (value: ((prevState: boolean) => boolean) | boolean) => void;
@@ -28,7 +31,7 @@ interface Props {
   ) => void;
 }
 
-export const TableTestsWidget = ({
+export const BaseTestsWidget = ({
   setIsOpenTest,
   setIsOpenQuestion,
 }: Props) => {
@@ -51,15 +54,15 @@ export const TableTestsWidget = ({
 
   return (
     <WidgetWrapper>
-      <WidgetHeader icon={<QuizIcon />} label="Доступные тесты" />
-      <TableTestsToolbar />
+      <WidgetHeader icon={<QuizIcon />} label="Список тестов" />
+      <BaseTestsToolbar />
       <TableContainer>
         <Table sx={{ minWidth: 750 }} aria-labelledby="tableTitle">
           <TableHeader<TableTestRow>
             order={order}
             orderBy={orderBy}
             cells={cells}
-            sortedCells={['label', 'duration', 'createdDate', 'questionCount']}
+            sortedCells={['label']}
             handleRequestSort={handleRequestSort}
           />
           <TableBody>
@@ -82,32 +85,38 @@ export const TableTestsWidget = ({
                     align="left"
                     style={{ padding: '16px' }}
                   >
-                    {row.label}
-                  </TableCell>
-                  <TableCell align="left" style={{ padding: '16px' }}>
-                    {row.questionCount}
-                  </TableCell>
-                  <TableCell align="left" style={{ padding: '16px' }}>
-                    {row.duration} минут
+                    <Grid container alignItems="center">
+                      <PsychologyIcon style={{ marginRight: '8px' }} />
+                      {row.label}
+                    </Grid>
                   </TableCell>
                   <TableCell align="left" style={{ padding: '16px' }}>
                     <Typography variant="body2">
-                      {getStatusText(row.status)}
+                      {row.status === 'DONE' ? (
+                        <Chip bgColor="#ed6c02">
+                          {getStatusText(row.status)}
+                        </Chip>
+                      ) : (
+                        <Chip>{getStatusText(row.status)}</Chip>
+                      )}
                     </Typography>
                   </TableCell>
                   <TableCell align="left" style={{ padding: '16px' }}>
-                    {row.createdDate}
-                  </TableCell>
-                  <TableCell align="left" style={{ padding: '16px' }}>
                     <IconButton
-                      style={{ color: '#ed6c02' }}
+                      style={{
+                        color: row.status === 'DONE' ? '#ed6c02' : '#3b46b0',
+                      }}
                       onClick={
                         index === 0
                           ? () => setIsOpenQuestion(true)
                           : () => setIsOpenTest(true)
                       }
                     >
-                      <PlayCircleOutlineIcon />
+                      {row.status === 'DONE' ? (
+                        <CheckCircleOutlineIcon />
+                      ) : (
+                        <PlayCircleOutlineIcon />
+                      )}
                     </IconButton>
                   </TableCell>
                 </TableRow>

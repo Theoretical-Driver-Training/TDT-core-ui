@@ -2,7 +2,6 @@ import * as React from 'react';
 import { WidgetWrapper } from '../../WidgetWrapper';
 import { Grid, styled } from '@mui/material';
 import { ActiveTestsWidget } from './ActiveTestsWidget';
-import { PopularWidget } from './PopularWidget';
 
 const SidebarBlock = styled(Grid)(() => ({
   maxHeight: 600,
@@ -24,9 +23,6 @@ export const Sidebar = () => {
     >
       <SidebarBlock container item>
         <ActiveTestsWidget />
-      </SidebarBlock>
-      <SidebarBlock container item>
-        <PopularWidget />
       </SidebarBlock>
     </WidgetWrapper>
   );

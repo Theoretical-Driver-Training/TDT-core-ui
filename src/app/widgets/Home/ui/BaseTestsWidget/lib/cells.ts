@@ -7,24 +7,9 @@ export const cells: TableTestCell[] = [
     label: 'Наименование',
   },
   {
-    id: 'questionCount',
-    numeric: false,
-    label: 'Кол-во вопросов',
-  },
-  {
-    id: 'duration',
-    numeric: false,
-    label: 'Длительность',
-  },
-  {
     id: 'status',
     numeric: false,
     label: 'Статус',
-  },
-  {
-    id: 'createdDate',
-    numeric: false,
-    label: 'Дата добавления',
   },
   {
     id: 'possibleRun',
