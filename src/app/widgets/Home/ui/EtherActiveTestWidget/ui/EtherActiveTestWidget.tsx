@@ -1,9 +1,8 @@
 import React from 'react';
 import { WidgetWrapper } from '../../../../../shared/WidgetWrapper';
 import { WidgetHeader } from '../../../../../shared/WidgetWrapper/ui/WidgetHeader';
-import { Grid, IconButton, styled, Typography } from '@mui/material';
-import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
-import PsychologyIcon from '@mui/icons-material/Psychology';
+import { Grid, styled, Typography } from '@mui/material';
+import WhatshotIcon from '@mui/icons-material/Whatshot';
 
 const ActiveWidgetWrapper = styled(WidgetWrapper)(({ theme }) => ({
   backgroundColor: theme.palette.secondary.dark,
@@ -13,7 +12,7 @@ const ActiveWidgetWrapper = styled(WidgetWrapper)(({ theme }) => ({
 export const EtherActiveTestWidget = () => {
   return (
     <ActiveWidgetWrapper>
-      <WidgetHeader label="Продолжим прохождение?" />
+      <WidgetHeader label="Уровень функциональной готовности" />
 
       <Grid
         container
@@ -22,17 +21,14 @@ export const EtherActiveTestWidget = () => {
         paddingTop={2}
       >
         <Grid container item gap={2} xs={8} wrap="nowrap" alignItems="center">
-          <PsychologyIcon
+          <WhatshotIcon
             style={{ width: '40px', height: '40px', color: '#fff' }}
           />
           <Grid>
-            <Typography whiteSpace="nowrap">EQ-тестирование</Typography>
+            <Typography whiteSpace="nowrap" variant="h6">
+              Очень высокий
+            </Typography>
           </Grid>
-        </Grid>
-        <Grid item>
-          <IconButton style={{ color: '#fff' }}>
-            <PlayCircleOutlineIcon />
-          </IconButton>
         </Grid>
       </Grid>
     </ActiveWidgetWrapper>

@@ -3,27 +3,44 @@ import { WidgetHeader } from '../../../../WidgetWrapper/ui/WidgetHeader';
 import { ActiveTestsItem } from './ActiveTestsItem';
 import PsychologyIcon from '@mui/icons-material/Psychology';
 import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
-import { ButtonShowAll } from '../../../../ButtonShowAll';
+import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
+import React from 'react';
 
 export const ActiveTestsWidget = () => {
   return (
-    <Grid container xs={12}>
-      <WidgetHeader label="Активные" />
-      <Grid xs={12}>
-        <List>
-          <ActiveTestsItem
-            label="EQ-тестирование"
-            date="20 апреля"
-            IconComponent={PsychologyIcon}
-            endAdornment={
-              <IconButton style={{ color: '#ed6c02' }}>
-                <PlayCircleOutlineIcon />
-              </IconButton>
-            }
-          />
-        </List>
+    <Grid container gap={2}>
+      <Grid container xs={12}>
+        <WidgetHeader label="Предыдущий тест" />
+        <Grid xs={12}>
+          <List>
+            <ActiveTestsItem
+              label="Таблицы Шульте"
+              IconComponent={PsychologyIcon}
+              endAdornment={
+                <IconButton style={{ color: '#ed6c02' }}>
+                  <CheckCircleOutlineIcon />
+                </IconButton>
+              }
+            />
+          </List>
+        </Grid>
       </Grid>
-      <ButtonShowAll onClick={() => null} />
+      <Grid container xs={12}>
+        <WidgetHeader label="Следующий тест" />
+        <Grid xs={12}>
+          <List>
+            <ActiveTestsItem
+              label="Тест Светофор"
+              IconComponent={PsychologyIcon}
+              endAdornment={
+                <IconButton style={{ color: '#3b46b0' }}>
+                  <PlayCircleOutlineIcon />
+                </IconButton>
+              }
+            />
+          </List>
+        </Grid>
+      </Grid>
     </Grid>
   );
 };

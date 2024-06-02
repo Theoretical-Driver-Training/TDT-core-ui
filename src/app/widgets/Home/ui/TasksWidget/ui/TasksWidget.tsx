@@ -3,7 +3,7 @@ import DoneAllIcon from '@mui/icons-material/DoneAll';
 import { WidgetWrapper } from '../../../../../shared/WidgetWrapper';
 import { WidgetHeader } from '../../../../../shared/WidgetWrapper/ui/WidgetHeader';
 import { Grid, List } from '@mui/material';
-import { ResultItem } from './ResultItem';
+import { TasksItem } from './TasksItem';
 import { Circle } from '@mui/icons-material';
 import { ButtonShowAll } from '../../../../../shared/ButtonShowAll';
 
@@ -13,25 +13,39 @@ interface Props {
   ) => void;
 }
 
-export const ResultsWidget = ({ setIsOpenHistory }: Props) => {
+export const TasksWidget = ({ setIsOpenHistory }: Props) => {
   return (
     <WidgetWrapper container item direction="column" height="100%">
-      <WidgetHeader icon={<DoneAllIcon />} label="Мои результаты" />
+      <WidgetHeader icon={<DoneAllIcon />} label="Задачи на сегодня" />
       <Grid container direction="column" flexGrow={1}>
         <List
           style={{ display: 'flex', flexDirection: 'column', flexGrow: '1' }}
         >
-          <ResultItem
-            label="EQ-тестирование"
-            IconComponent={Circle}
-            color="#7467ef"
-            count={125}
-          />
-          <ResultItem
-            label="Тест Айзека"
+          <TasksItem
+            label='Таблицы "Шульте"'
             IconComponent={Circle}
             color="#ff9e43"
-            count={80}
+            checked={true}
+          />
+          <TasksItem
+            label='Тест "Светофор"'
+            IconComponent={Circle}
+            color="#7467ef"
+          />
+          <TasksItem
+            label='Тест "Американских военных пилотов (с изменениями)"'
+            IconComponent={Circle}
+            color="#7467ef"
+          />
+          <TasksItem
+            label='Опросник "САН"'
+            IconComponent={Circle}
+            color="#7467ef"
+          />
+          <TasksItem
+            label='Опросник "Готовность водителя"'
+            IconComponent={Circle}
+            color="#7467ef"
           />
         </List>
         <ButtonShowAll onClick={() => setIsOpenHistory(true)} />

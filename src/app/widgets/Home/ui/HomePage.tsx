@@ -1,11 +1,11 @@
 import { Grid, useMediaQuery } from '@mui/material';
 import { WelcomeWidget } from './WelcomeWidget';
-import { ResultsWidget } from './ResultsWidget';
+import { TasksWidget } from './TasksWidget';
 import { StatisticWidget } from './StatisticWidget';
 import { useTheme } from '@mui/material/styles';
 import { EtherActiveTestWidget } from './EtherActiveTestWidget';
-import { EtherPopularTestWidget } from './EtherPopularTestWidget';
-import { TableTestsWidget } from './TableTestsWidget';
+import { EtherTaskWidget } from './EtherTaskWidget';
+import { BaseTestsWidget } from './BaseTestsWidget';
 import { TestWidget } from './TestWidget';
 import { useState } from 'react';
 import { QuestionWidget } from './QuestionWidget';
@@ -26,7 +26,7 @@ export const HomePage = () => {
       </Grid>
       <Grid container xs={12} gap={3} wrap={isMobile ? 'wrap' : 'nowrap'}>
         <Grid item xs={12} sm={12} md={5} lg={5}>
-          <ResultsWidget setIsOpenHistory={setIsOpenHistory} />
+          <TasksWidget setIsOpenHistory={setIsOpenHistory} />
         </Grid>
         <Grid item xs={12} sm={12} md={7} lg={7}>
           <StatisticWidget />
@@ -37,11 +37,11 @@ export const HomePage = () => {
           <EtherActiveTestWidget />
         </Grid>
         <Grid item xs={12} sm={12} md={6} lg={6}>
-          <EtherPopularTestWidget />
+          <EtherTaskWidget />
         </Grid>
       </Grid>
       <Grid xs={12}>
-        <TableTestsWidget
+        <BaseTestsWidget
           setIsOpenTest={setIsOpenTest}
           setIsOpenQuestion={setIsOpenQuestion}
         />
