@@ -7,11 +7,6 @@ export const cells: TableTestCell[] = [
     label: 'Наименование',
   },
   {
-    id: 'questionCount',
-    numeric: false,
-    label: 'Кол-во вопросов',
-  },
-  {
     id: 'duration',
     numeric: false,
     label: 'Длительность прохождения',
@@ -24,7 +19,7 @@ export const cells: TableTestCell[] = [
   {
     id: 'count',
     numeric: false,
-    label: 'Кол-во набранных баллов',
+    label: 'Кол-во ошибок',
   },
   {
     id: 'info',
