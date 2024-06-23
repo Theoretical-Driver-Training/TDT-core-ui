@@ -1,3 +1,15 @@
+## 0.24.0 (2024-06-23)
+
+
+### 🚀 Features
+
+- add calendar TDT-55 ([33305ea](https://github.com/Theoretical-Driver-Training/TDT-core-ui/commit/33305ea))
+
+
+### ❤️  Thank You
+
+- Витте Артем Андреевич
+
 ## 0.23.0 (2024-06-02)
 
 
