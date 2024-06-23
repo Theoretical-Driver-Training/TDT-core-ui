@@ -6,6 +6,11 @@ import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import { WidgetWrapper } from '../../../shared/WidgetWrapper';
 import { WidgetHeader } from '../../../shared/WidgetWrapper/ui/WidgetHeader';
 import { Chip } from '../../../shared/Chip';
+import { StaticDateRangePicker } from '@mui/x-date-pickers-pro/StaticDateRangePicker';
+import { Tooltip } from '../../../shared/Tooltip';
+import { useState } from 'react';
+import './StatisticWidget.css';
+import dayjs from 'dayjs';
 
 const levels = [
   '',
@@ -85,6 +90,8 @@ const dataset: any = [
 ];
 
 export const StatisticWidget = () => {
+  const [isOpenCalendar, setIsOpenCalendar] = useState(false);
+
   return (
     <WidgetWrapper
       container
@@ -107,8 +114,15 @@ export const StatisticWidget = () => {
                 backgroundColor: '#3b46b0',
                 color: '#fff',
               }}
+              onClick={() => setIsOpenCalendar((prev) => !prev)}
             >
-              <CalendarMonthIcon fontSize="medium" />
+              <Tooltip
+                open={isOpenCalendar}
+                onClose={() => setIsOpenCalendar(false)}
+                tooltipChildren={<StaticDateRangePicker />}
+              >
+                <CalendarMonthIcon fontSize="medium" />
+              </Tooltip>
             </IconButton>
           </Box>
         }

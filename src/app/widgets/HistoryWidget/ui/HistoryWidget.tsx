@@ -5,6 +5,7 @@ import DoneAllIcon from '@mui/icons-material/DoneAll';
 import { TableHistory } from './TableHistory';
 import { Modal } from '../../../shared/Modal';
 import { WidgetHeader } from '../../../shared/WidgetWrapper/ui/WidgetHeader';
+import IosShareIcon from '@mui/icons-material/IosShare';
 
 interface Props {
   open: boolean;
@@ -21,9 +22,14 @@ export const HistoryWidget = ({ open, setIsOpenHistory }: Props) => {
         icon={<DoneAllIcon />}
         label="Мои результаты"
       >
-        <IconButton onClick={() => setIsOpenHistory(false)}>
-          <CloseIcon />
-        </IconButton>
+        <Grid>
+          <IconButton style={{ marginRight: '8px' }}>
+            <IosShareIcon />
+          </IconButton>
+          <IconButton onClick={() => setIsOpenHistory(false)}>
+            <CloseIcon />
+          </IconButton>
+        </Grid>
       </WidgetHeader>
       <Grid paddingTop={2}>
         <TableHistory />

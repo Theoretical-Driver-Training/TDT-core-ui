@@ -3,6 +3,8 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { AppRouter } from './shared/Router';
 import './app.css';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 
 const defaultTheme = createTheme({
   palette: {
@@ -25,8 +27,10 @@ export const SECONDARY_GRADIENT =
 export function App() {
   return (
     <ThemeProvider theme={defaultTheme}>
-      <CssBaseline />
-      <AppRouter />
+      <LocalizationProvider dateAdapter={AdapterDayjs}>
+        <CssBaseline />
+        <AppRouter />
+      </LocalizationProvider>
     </ThemeProvider>
   );
 }

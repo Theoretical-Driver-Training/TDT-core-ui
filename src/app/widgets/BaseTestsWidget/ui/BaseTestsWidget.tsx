@@ -25,9 +25,13 @@ interface Props {
   setIsOpenQuestion: (
     value: ((prevState: boolean) => boolean) | boolean
   ) => void;
+  setIsOpenAnswer: (value: ((prevState: boolean) => boolean) | boolean) => void;
 }
 
-export const BaseTestsWidget = ({ setIsOpenQuestion }: Props) => {
+export const BaseTestsWidget = ({
+  setIsOpenQuestion,
+  setIsOpenAnswer,
+}: Props) => {
   const [order, setOrder] = React.useState<Order>('asc');
   const [orderBy, setOrderBy] = React.useState<keyof TableTestRow | null>(null);
 
@@ -100,7 +104,9 @@ export const BaseTestsWidget = ({ setIsOpenQuestion }: Props) => {
                         color: row.status === 'DONE' ? '#ed6c02' : '#3b46b0',
                       }}
                       onClick={
-                        index === 0 ? () => setIsOpenQuestion(true) : () => null
+                        index === 0
+                          ? () => setIsOpenQuestion(true)
+                          : () => setIsOpenAnswer(true)
                       }
                     >
                       {row.status === 'DONE' ? (

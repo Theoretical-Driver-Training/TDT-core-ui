@@ -9,12 +9,14 @@ import { EtherTaskWidget } from '../../../widgets/EtherTaskWidget';
 import { BaseTestsWidget } from '../../../widgets/BaseTestsWidget';
 import { QuestionWidget } from '../../../widgets/QuestionWidget';
 import { HistoryWidget } from '../../../widgets/HistoryWidget';
+import { ResultWidget } from '../../../widgets/ResultWidget/ui';
 
 export const HomePage = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
   const [isOpenQuestion, setIsOpenQuestion] = useState(false);
+  const [isOpenAnswer, setIsOpenAnswer] = useState(false);
   const [isOpenHistory, setIsOpenHistory] = useState(false);
 
   return (
@@ -39,12 +41,16 @@ export const HomePage = () => {
         </Grid>
       </Grid>
       <Grid xs={12}>
-        <BaseTestsWidget setIsOpenQuestion={setIsOpenQuestion} />
+        <BaseTestsWidget
+          setIsOpenQuestion={setIsOpenQuestion}
+          setIsOpenAnswer={setIsOpenAnswer}
+        />
       </Grid>
       <QuestionWidget
         open={isOpenQuestion}
         setIsOpenQuestion={setIsOpenQuestion}
       />
+      <ResultWidget open={isOpenAnswer} setIsOpenAnswer={setIsOpenAnswer} />
       <HistoryWidget open={isOpenHistory} setIsOpenHistory={setIsOpenHistory} />
     </Grid>
   );
